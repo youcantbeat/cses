@@ -1,20 +1,41 @@
-#include<iostream>
-#include<algorithm>
-#define lli long long int
+#include <bits/stdc++.h>
+
 using namespace std;
-int main(){
-    
-    lli n;
-    cin >> n;
-    lli a[n];
-    for(lli i = 0; i<n; i++){
-        cin >> a[i];
+
+int main()
+
+{
+
+
+long long int n;
+
+cin >> n;
+
+long long int arr[n];
+
+for (long long int i = 0; i < n; i++)
+
+    cin >> arr[i];
+
+long long int c = 0;
+
+for (long long int i = 0; i < n - 1; i++)
+
+{
+
+    if (arr[i + 1] < arr[i])
+
+    {
+
+        c += arr[i] - arr[i + 1];
+
+        arr[i + 1] = arr[i];
+
     }
-    lli total = 0, m = a[0];
-    for(lli i = 0; i<n; i++){
-        total += max(9LL, m-a[i]);
-        m = max(m, a[i]);
-    }
-    cout << total << endl;
-    return 0;
+
+}
+
+cout << c;
+
+return 0;
 }
